@@ -1,17 +1,21 @@
 package com.swt.lab.util;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static com.swt.lab.util.UtilMath.factorial;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UtilMathTest {
-    @Test
-    public void testFactorial() {
-        assertEquals(1, factorial(0));
-        assertEquals(1, factorial(1));
-        assertEquals(120, factorial(5));
-        assertEquals(3628800, factorial(10));
-        assertEquals(2432902008176640000L, factorial(20));
+    @ParameterizedTest
+    @CsvSource({
+            "0,1",
+            "1,1",
+            "5,120",
+            "10,3628800",
+            "20,2432902008176640000",
+    })
+    public void testFactorial(int x, long expected) {
+        assertEquals(expected, factorial(x));
     }
 }

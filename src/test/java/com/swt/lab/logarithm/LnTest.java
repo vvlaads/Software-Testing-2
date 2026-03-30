@@ -6,9 +6,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class LnSeriesTest {
+class LnTest {
 
-    private final LnSeries ln = new LnSeries();
+    private final Ln ln = new Ln();
 
     @ParameterizedTest
     @CsvSource({

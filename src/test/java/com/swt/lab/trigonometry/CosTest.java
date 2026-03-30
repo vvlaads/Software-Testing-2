@@ -5,11 +5,11 @@ import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CosSeriesTest {
+public class CosTest {
     @Test
     void testCos() {
         Sin sinMock = Mockito.mock(Sin.class);
-        Cos cos = new CosSeries(sinMock);
+        Cos cos = new Cos(sinMock);
 
         Mockito.when(sinMock.calculate(-Math.PI / 2)).thenReturn(-1.0);
 

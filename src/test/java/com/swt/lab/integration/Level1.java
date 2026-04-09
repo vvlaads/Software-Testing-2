@@ -12,7 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.lenient;
@@ -165,7 +165,30 @@ public class Level1 {
             "2.5933,21.2072551556",
             "5,24.3103953602"
     })
-    void testFunction(double x, double expected) {
+    void testFunctionWithArgumentMoreThanZero(double x, double expected) {
         assertEquals(expected, myFunction.calculate(x), 1e-4);
+    }
+
+
+    @ParameterizedTest
+    @CsvSource({
+            "0.1,-31.7120885293",
+            "0.385609,-21.20726",
+            "0.6,-25.4774012018",
+            "1.1,107.184397658",
+            "2.5933,21.2072551556",
+            "5,24.3103953602"
+    })
+    void testFunctionWithArgumentLessThanZero(double x, double expected) {
+        assertEquals(expected, myFunction.calculate(x), 1e-4);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "0",
+            "1"
+    })
+    void testBadPoints(double x) {
+        assertTrue(Double.isNaN(myFunction.calculate(x)));
     }
 }

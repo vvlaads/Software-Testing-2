@@ -7,7 +7,7 @@ public class Log {
         this.ln = ln;
     }
 
-    public double calculate(double x, double base) {
+    public double calculate(double x, int base) {
         return ln.calculate(x) / ln.calculate(base);
     }
 }

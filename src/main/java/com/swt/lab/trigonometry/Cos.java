@@ -1,6 +1,8 @@
 package com.swt.lab.trigonometry;
 
-public class Cos {
+import com.swt.lab.util.Function;
+
+public class Cos implements Function {
     private final Sin sin;
 
     public Cos(Sin sin) {

@@ -1,6 +1,8 @@
 package com.swt.lab.trigonometry;
 
-public class Sec {
+import com.swt.lab.util.Function;
+
+public class Sec implements Function {
     private final Cos cos;
 
     public Sec(Cos cos) {

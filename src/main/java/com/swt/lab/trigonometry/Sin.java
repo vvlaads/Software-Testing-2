@@ -1,9 +1,11 @@
 package com.swt.lab.trigonometry;
 
+import com.swt.lab.util.Function;
+
 import static com.swt.lab.util.UtilMath.factorial;
 import static java.lang.Math.*;
 
-public class Sin {
+public class Sin implements Function {
 
     public double calculate(double x) {
         x = x % (2 * PI);

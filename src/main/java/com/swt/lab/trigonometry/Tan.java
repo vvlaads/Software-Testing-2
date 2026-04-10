@@ -1,6 +1,8 @@
 package com.swt.lab.trigonometry;
 
-public class Tan {
+import com.swt.lab.util.Function;
+
+public class Tan implements Function {
     private final Sin sin;
     private final Cos cos;
 

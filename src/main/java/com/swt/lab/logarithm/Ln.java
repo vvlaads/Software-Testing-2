@@ -1,8 +1,10 @@
 package com.swt.lab.logarithm;
 
+import com.swt.lab.util.Function;
+
 import static java.lang.Math.*;
 
-public class Ln {
+public class Ln implements Function {
     private final double EPS = 1e-10;
     private final int MAX_ITERATIONS = 100;
     private final double LN_SERIES_THRESHOLD = 1.5;

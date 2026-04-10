@@ -1,6 +1,8 @@
 package com.swt.lab.trigonometry;
 
-public class Csc {
+import com.swt.lab.util.Function;
+
+public class Csc implements Function {
     private final Sin sin;
 
     public Csc(Sin sin) {

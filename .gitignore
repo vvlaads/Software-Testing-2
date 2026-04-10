@@ -25,3 +25,7 @@ replay_pid*
 
 # Build files
 .idea/
+target/
+
+# docs
+*.docx#

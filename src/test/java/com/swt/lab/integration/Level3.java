@@ -43,6 +43,17 @@ public class Level3 {
         if (x == -3.43021) return 0.284627032861;
         if (x == -5.28327) return 0.841425222064;
         if (x == -5.99457) return 0.284625077976;
+        if (x == -0.1) return -0.0998334166468;
+        if (x == -0.8) return -0.7173560909;
+        if (x == -1) return -0.841470984808;
+        if (x == -2.3) return -0.745705212177;
+        if (x == -3) return -0.14112000806;
+        if (x == -3.6) return 0.442520443295;
+        if (x == -4) return 0.756802495308;
+        if (x == -5) return 0.958924274663;
+        if (x == -5.5) return 0.70554032557;
+        if (x == -5.9) return 0.37387666483;
+        if (x == -6.1) return 0.182162504272;
 
         if (x == Math.PI / 2 + 0.657984) return 0.791226668869;
         if (x == Math.PI / 2 + 3.78322530718) return -0.80111967602;
@@ -56,6 +67,18 @@ public class Level3 {
         if (x == Math.PI / 2 + 3.43021) return -0.958638332305;
         if (x == Math.PI / 2 + 5.28327) return 0.540373570481;
         if (x == Math.PI / 2 + 5.99457) return 0.958638912723;
+
+        if (x == Math.PI / 2 + 0.1) return 0.995004165278;
+        if (x == Math.PI / 2 + 0.8) return 0.696706709347;
+        if (x == Math.PI / 2 + 1) return 0.540302305868;
+        if (x == Math.PI / 2 + 2.3) return -0.66627602128;
+        if (x == Math.PI / 2 + 3) return -0.9899924966;
+        if (x == Math.PI / 2 + 3.6) return -0.896758416334;
+        if (x == Math.PI / 2 + 4) return -0.653643620864;
+        if (x == Math.PI / 2 + 5) return 0.283662185463;
+        if (x == Math.PI / 2 + 5.5) return 0.708669774291;
+        if (x == Math.PI / 2 + 5.9) return 0.927478430744;
+        if (x == Math.PI / 2 + 6.1) return 0.983268438443;
         return 0;
     }
 
@@ -101,7 +124,7 @@ public class Level3 {
             "-5.73560530718,-82.283372223",
             "-5.88811330718,-92.6148138585",
     })
-    void testFunctionWithArgumentLessThanZero(double x, double expected) {
+    void testFunctionWithArgumentLessThanZeroCriticalDots(double x, double expected) {
         assertEquals(expected, myFunction.calculate(x), 0.02);
     }
 
@@ -115,6 +138,24 @@ public class Level3 {
             "-5.99457,0",
     })
     void testFunctionEqualsZero(double x, double expected) {
+        assertEquals(expected, myFunction.calculate(x), 0.02);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "-0.1,-117523.787527",
+            "-0.8,76.2884706465",
+            "-1,-3.06167483972",
+            "-2.3,11.9749682942",
+            "-3,20028.46497",
+            "-3.6,42.2094142076",
+            "-4,-37.6743880901",
+            "-5,-1968.97001753",
+            "-5.5,-4117.41459043",
+            "-5.9,-92.2553675771",
+            "-6.1,2450.10584251",
+    })
+    void testFunctionWithArgumentLessThanZeroBetweenCriticalDots(double x, double expected) {
         assertEquals(expected, myFunction.calculate(x), 0.02);
     }
 

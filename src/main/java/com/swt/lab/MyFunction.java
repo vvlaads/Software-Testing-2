@@ -3,8 +3,9 @@ package com.swt.lab;
 import com.swt.lab.logarithm.Ln;
 import com.swt.lab.logarithm.Log;
 import com.swt.lab.trigonometry.*;
+import com.swt.lab.util.Function;
 
-public class MyFunction {
+public class MyFunction implements Function {
     private final Sin sin;
     private final Cos cos;
     private final Tan tan;

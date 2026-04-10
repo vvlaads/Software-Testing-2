@@ -52,7 +52,7 @@ public class Level4 {
             "-5.73560530718,-82.283372223",
             "-5.88811330718,-92.6148138585",
     })
-    void testFunctionWithArgumentLessThanZero(double x, double expected) {
+    void testFunctionWithArgumentLessThanZeroCriticalDots(double x, double expected) {
         assertEquals(expected, myFunction.calculate(x), 0.02);
     }
 
@@ -66,6 +66,24 @@ public class Level4 {
             "-5.99457,0",
     })
     void testFunctionEqualsZero(double x, double expected) {
+        assertEquals(expected, myFunction.calculate(x), 0.02);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "-0.1,-117523.787527",
+            "-0.8,76.2884706465",
+            "-1,-3.06167483972",
+            "-2.3,11.9749682942",
+            "-3,20028.46497",
+            "-3.6,42.2094142076",
+            "-4,-37.6743880901",
+            "-5,-1968.97001753",
+            "-5.5,-4117.41459043",
+            "-5.9,-92.2553675771",
+            "-6.1,2450.10584251",
+    })
+    void testFunctionWithArgumentLessThanZeroBetweenCriticalDots(double x, double expected) {
         assertEquals(expected, myFunction.calculate(x), 0.02);
     }
 

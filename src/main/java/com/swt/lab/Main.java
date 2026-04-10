@@ -19,6 +19,8 @@ public class Main {
         Ln ln = new Ln();
         Log log = new Log(ln);
 
+        MyFunction myFunction = new MyFunction(sin, cos, tan, cot, sec, csc, ln, log);
+
         PointGenerator generator = new PointGenerator();
 
         CsvWriter.write("sin.csv", generator.generate(-5, 5, 0.1, sin));
@@ -31,5 +33,6 @@ public class Main {
 
         log.setBase(10);
         CsvWriter.write("log10.csv", generator.generate(0.1, 5, 0.1, log));
+        CsvWriter.write("my_function.csv", generator.generate(-5, 5, 0.01, myFunction));
     }
 }

@@ -20,16 +20,8 @@ import static org.mockito.Mockito.lenient;
 @ExtendWith(MockitoExtension.class)
 public class Level2 {
 
-    private Tan tan;
-
-    private Cot cot;
-
-    private Sec sec;
-
     @Mock
     private Cos cos;
-
-    private Log log;
 
     @Mock
     private Ln ln;
@@ -40,48 +32,6 @@ public class Level2 {
     @Mock
     private Sin sin;
     private MyFunction myFunction;
-
-    private double tanValue(double x) {
-        if (x == 0.1) return 0.100334672085;
-        if (x == 0.385609) return 0.405931199897;
-        if (x == 0.6) return 0.684136808342;
-        if (x == 1.1) return 1.96475965725;
-        if (x == 2.5933) return -0.610758532957;
-        if (x == 5) return -3.38051500625;
-        if (x == -0.657984) return -0.772879639732;
-        if (x == -3.78322530718) return -0.747084620794;
-        if (x == -4.03374530718) return -1.24004775251;
-        if (x == -5.73560530718) return 0.609780466606;
-        if (x == -5.88811330718) return 0.4169963495;
-        if (x == -0.9806) return -1.49289377169;
-        if (x == -2.161) return 1.49287005237;
-        if (x == -2.40132) return 0.913589631537;
-        if (x == -3.43021) return -0.296907627485;
-        if (x == -5.28327) return 1.55711764607;
-        if (x == -5.99457) return 0.296905408489;
-        return 0;
-    }
-
-    private double cotValue(double x) {
-        if (x == 0.1) return 9.96664442326;
-        if (x == 0.385609) return 2.46347164311;
-        if (x == 0.6) return 1.46169594708;
-        if (x == 1.1) return 0.508968105239;
-        if (x == 2.5933) return -1.63730827494;
-        if (x == 5) return -0.295812915533;
-        if (x == -0.657984) return -1.29386252217;
-        if (x == -3.78322530718) return -1.33853645513;
-        if (x == -4.03374530718) return -0.806420557574;
-        if (x == -5.73560530718) return 1.63993445964;
-        if (x == -5.88811330718) return 2.39810252823;
-        if (x == -0.9806) return -0.669840024093;
-        if (x == -2.161) return 0.669850666785;
-        if (x == -2.40132) return 1.09458335064;
-        if (x == -3.43021) return -3.36805089337;
-        if (x == -5.28327) return 0.642212232664;
-        if (x == -5.99457) return 3.36807606533;
-        return 0;
-    }
 
     private double cscValue(double x) {
         if (x == 0.1) return 10.0166861316;
@@ -101,27 +51,6 @@ public class Level2 {
         if (x == -3.43021) return 3.5133697244;
         if (x == -5.28327) return 1.18845973924;
         if (x == -5.99457) return 3.51339385522;
-        return 0;
-    }
-
-    private double secValue(double x) {
-        if (x == 0.1) return 1.0050209184;
-        if (x == 0.385609) return 1.07924980382;
-        if (x == 0.6) return 1.21162831451;
-        if (x == 1.1) return 2.20460438872;
-        if (x == 2.5933) return -1.17176191506;
-        if (x == 5) return 3.52532008582;
-        if (x == -0.657984) return 1.26386033149;
-        if (x == -3.78322530718) return -1.24825295138;
-        if (x == -4.03374530718) return -1.5930217916;
-        if (x == -5.73560530718) return 1.17125241407;
-        if (x == -5.88811330718) return 1.08346017716;
-        if (x == -0.9806) return 1.79686722202;
-        if (x == -2.161) return -1.7968475153;
-        if (x == -2.40132) return -1.35449105381;
-        if (x == -3.43021) return -1.04314626935;
-        if (x == -5.28327) return 1.8505716316;
-        if (x == -5.99457) return 1.04314563777;
         return 0;
     }
 
@@ -179,38 +108,12 @@ public class Level2 {
         return 0;
     }
 
-    private double logValue(double x, int base) {
-        switch (base) {
-            case 3 -> {
-                if (x == 0.1) return -2.09590327429;
-                if (x == 0.385609) return -0.867395518964;
-                if (x == 0.6) return -0.464973520718;
-                if (x == 1.1) return 0.0867550643548;
-                if (x == 2.5933) return 0.867395354848;
-                if (x == 5) return 1.46497352072;
-                return 0;
-            }
-            case 10 -> {
-                if (x == 0.1) return -1;
-                if (x == 0.385609) return -0.413852838346;
-                if (x == 0.6) return -0.221848749616;
-                if (x == 1.1) return 0.0413926851582;
-                if (x == 2.5933) return 0.413852760043;
-                if (x == 5) return 0.698970004336;
-                return 0;
-            }
-            default -> {
-                return lnValue(x);
-            }
-        }
-    }
-
     @BeforeEach
     void init() {
-        tan = new Tan(sin, cos);
-        cot = new Cot(sin, cos);
-        sec = new Sec(cos);
-        log = new Log(ln);
+        Tan tan = new Tan(sin, cos);
+        Cot cot = new Cot(sin, cos);
+        Sec sec = new Sec(cos);
+        Log log = new Log(ln);
 
         myFunction = new MyFunction(sin, cos, tan, cot, sec, csc, ln, log);
     }
